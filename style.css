@@ -1,0 +1,553 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap');
+::-webkit-scrollbar {
+	scrollbar-width: 12px;
+	background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+	display: none;
+}
+
+@keyframes appearance {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes listmove {
+	from {
+		marin-left: 0%;
+		width: 100%;
+	}
+
+	100% {
+		margin-left: 10%;
+		width: 105%;
+	}
+}
+
+@keyframes paintmove {
+	from {
+		marin-left: 0%;
+		width: 100%;
+	}
+
+	50% {
+		margin-left: 10%;
+		width: 105%;
+	}
+
+	to {
+		margin-left: 0%;
+		width: 100%;
+	}
+}
+
+@keyframes artistmove {
+	from {
+		margin-left: 200%;
+		width: 200%;
+	}
+
+	to {
+		margin-left: 0%;
+		width: 100%;
+	}
+}
+
+@keyframes blink {
+	0% {
+		opacity: 1;
+	}
+	25% {
+		opacity: 0.1;
+	}
+	50% {
+		opacity: 0.8;
+		filter: grayscale(1);
+	}
+	75% {
+		opacity: 0.5;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+:root {
+	--redOne: #db1616;
+	--main: #211f1f;
+	--mainWhite: rgba(255, 255, 255, 0.618);
+	--description: #474747;
+	--liHover: #dedddd68;
+	--boxShadow: #e4dada;
+	--paintDescrip: #fbf5f56f;
+	--spanDescrip: #fbf5f51f;
+	--background: #dfd9d9d8;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+	font-family: 'Poppins', sans-serif;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: var(--main);
+	transition: 0.3s ease-in-out;
+}
+
+.container {
+	max-width: 1164px;
+	margin: 0 auto;
+	padding: 12px;
+}
+
+/* ========================= NAVIGATION ========================== */
+
+.nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+	height: 92px;
+}
+
+.nav .nav-ul {
+	display: flex;
+	/* gap: 37px; */
+	width: 50%;
+	justify-content: space-around;
+}
+
+.nav .nav-ul .nav-li .navLink {
+	font-size: 1.6rem;
+}
+
+.nav .nav-ul .nav-li .navLink:hover {
+	opacity: 70%;
+	color: var(--redOne);
+}
+
+.navLink-span-on {
+	font-weight: bold;
+	color: var(--redOne);
+}
+.main-not-active {
+	display: none;
+}
+
+.main-active {
+	display: flex;
+	animation-name: appearance;
+	animation-duration: 1.5s;
+	animation-delay: 0.5s;
+	animation-fill-mode: both;
+}
+
+/* ========================= END NAVIGATION ========================== */
+
+.artist-not-active {
+	display: none;
+}
+
+.artists-active {
+	display: block;
+	animation-name: appearance;
+	animation-duration: 1.5s;
+	animation-delay: 0.5s;
+	animation-fill-mode: both;
+}
+
+/* ----------------------- burger ----------------------- */
+
+.active {
+	display: flex;
+}
+
+.burger {
+	background: transparent;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: none;
+}
+
+.line {
+	display: block;
+	width: 3em;
+	height: 0.3em;
+	background: var(--main);
+	margin: 0.7em;
+	border-radius: 20px;
+	transition: 0.3s ease-in-out;
+}
+
+@media only screen and (max-width: 1000px) {
+	.burger {
+		display: block;
+		transition: 0.3s ease-in-out;
+	}
+
+	.burger.active .line:first-child {
+		transform: translateY(-300px);
+	}
+
+	.burger.active .line:nth-child(2) {
+		transform: rotate(-405deg) translateY(8px);
+	}
+
+	.burger.active .line:nth-child(3) {
+		transform: rotate(-320deg) translateY(-10px);
+	}
+
+	.nav .nav-ul {
+		display: none;
+		position: absolute;
+		right: 0;
+		top: 8vh;
+		height: 30vh;
+		flex-direction: column;
+		text-align: center;
+		transition: 0.3s ease-in-out;
+		width: 100%;
+		background-color: rgba(181, 181, 181, 0.83);
+		display: none;
+		border-radius: 15px;
+		z-index: 2;
+	}
+
+	.nav .nav-ul.active {
+		display: flex;
+	}
+}
+
+/* ================================ HOME ================================= */
+
+.homeSection {
+	margin-top: 140px;
+	justify-content: space-between;
+	gap: 50px;
+}
+
+.homeSection .homeDescription {
+	border-top: 1px solid var(--main);
+	border-top-right-radius: 15px;
+	border-top-left-radius: 15px;
+	max-width: 383px;
+}
+
+.homeSection .homeDescription h1 {
+	font-size: 4.6rem;
+	font-weight: 300;
+	margin-top: 28px;
+}
+.homeSection .homeDescription h1 span {
+	font-size: 3.6rem;
+}
+
+.homeSection .homeDescription h1::after {
+	content: 'The World no.1';
+	display: block;
+	font-size: 1.2rem;
+	font-weight: 300;
+}
+
+.homeSection .homeDescription .home-p {
+	margin-top: 80px;
+	font-size: 1.2rem;
+	text-align: justify;
+	color: var(--description);
+}
+
+.homeSection .homeRight .homeRightImg {
+	max-width: 100%;
+	animation-name: blink;
+	animation-duration: 2s;
+	animation-delay: 0.5s;
+	animation-fill-mode: both;
+}
+
+/* ============================================ ARTISTS ================================== */
+
+.artists {
+	margin-top: 80px;
+	gap: 45px;
+}
+
+.artists-left {
+	min-width: 255px;
+}
+
+.artists .artists-left .artists-label {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 50px;
+}
+
+.artists .artists-left .artists-label h2 {
+	font-size: 2.2rem;
+	display: block;
+}
+
+.artists-ul .artist-li {
+	height: 45px;
+	border-radius: 5px;
+	transition: 0.3s ease-in-out;
+	width: 100%;
+	align-items: center;
+	display: flex;
+}
+
+/* .artists-ul .artist-li:hover {
+	background-color: var(--liHover);
+	opacity: 0.8;
+	box-shadow: 1px 0.5px 1px var(--boxShadow);
+	animation-name: listmove;
+	animation-duration: 1s;
+	animation-delay: 0.2s;
+	animation-fill-mode: both;
+} */
+
+.artists-ul .artist-li a {
+	padding: 10px;
+	font-size: 1.6rem;
+}
+
+.artists-ul .artist-li a:hover {
+	opacity: 0.8;
+	font-size: 1.8rem;
+	animation-name: listmove;
+	animation-duration: 0.7s;
+	animation-delay: 0.2s;
+	animation-fill-mode: both;
+	/* background-color: var(--liHover); */
+	/* box-shadow: 1px 0.5px 1px var(--boxShadow); */
+}
+
+.john-doe-label {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	gap: 20px;
+	margin-bottom: 50px;
+	animation-name: artistmove;
+	animation-duration: 1s;
+	animation-delay: 0.5s;
+	animation-fill-mode: both;
+}
+
+.john-doe-label .john-doe-description {
+	font-weight: bold;
+	font-size: 1.2rem;
+	width: 40%;
+}
+
+.john-doe-label .john-doe-description span {
+	font-weight: 300;
+}
+
+.john-art {
+	margin-top: 80px;
+	display: flex;
+	gap: 30px;
+}
+
+.col-one-content {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+}
+
+.col-one-description {
+	width: 90%;
+	border-radius: 5px;
+	padding: 10px;
+	/* background-color: var(--paintDescrip); */
+	min-height: 135px;
+	margin-top: -58px;
+	margin-bottom: 50px;
+}
+
+.description {
+	font-size: 1.2rem;
+	letter-spacing: 0.1rem;
+	transition: 0.5s ease-in-out;
+	background-color: var(--paintDescrip);
+	opacity: 0;
+}
+
+.onOff {
+	opacity: 1;
+}
+
+.col-one-description span {
+	display: block;
+	font-size: 1.4rem;
+	font-weight: bold;
+	letter-spacing: 0.1rem;
+	line-height: 30px;
+	background-color: var(--spanDescrip);
+	cursor: pointer;
+}
+
+.col-one-description i {
+	font-size: 3rem;
+	color: var(--main);
+	background-color: var(--background);
+	border-radius: 5px;
+}
+
+.paint img {
+	width: 100%;
+	animation-name: paintmove;
+	animation-duration: 1.5s;
+	animation-delay: 0.2s;
+	animation-fill-mode: both;
+}
+
+.art-back {
+	/* text-decoration: underline var(--description); */
+	transition: 0.5s ease-in-out;
+	border-left: 3px solid var(--redOne);
+	border-radius: 5px;
+	background-color: var(--liHover);
+	box-shadow: 1px 0.5px 1px var(--boxShadow);
+	width: 100%;
+}
+
+/* ============================================ EVENTS ================================== */
+
+.events {
+	justify-content: space-between;
+	margin-top: 140px;
+}
+
+.events-left {
+	background-image: url(./img/eventsBg.png);
+	background-repeat: no-repeat;
+	border-radius: 5px;
+	max-width: 640px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	animation-name: paintmove;
+	animation-duration: 3s;
+	animation-delay: 0.2s;
+	animation-fill-mode: both;
+}
+
+.closest-event {
+	max-width: 490px;
+	background-color: var(--mainWhite);
+	border-radius: 5px;
+	display: flex;
+	gap: 26px;
+	align-items: center;
+	justify-content: center;
+	margin: 160px 75px;
+	padding: 77px 75px;
+	animation-name: blink;
+	animation-duration: 2s;
+	animation-delay: 0.5s;
+	animation-fill-mode: both;
+}
+
+.closest-event-img img {
+	width: 100%;
+	min-width: 100px;
+	box-shadow: 1px 0.5px 1px var(--boxShadow);
+}
+
+.closest-event-txt {
+	text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	text-align: center;
+	font-size: 1.6rem;
+	line-height: 4rem;
+}
+
+.closest-event-description > span {
+	display: block;
+	font-weight: lighter;
+	text-align: center;
+}
+
+.closest-event-description > p {
+	text-align: center;
+	font-size: 1.6rem;
+	font-weight: bold;
+}
+.events-rigth {
+	display: flex;
+	flex-direction: column;
+	gap: 50px;
+	max-height: 575px;
+	overflow-y: auto;
+	scroll-snap-type: y mandatory;
+	scroll-behavior: smooth;
+}
+
+.event-scroll {
+	font-size: 1.4rem;
+	margin-bottom: 50px;
+}
+
+.events-list {
+	max-width: 340px;
+	display: flex;
+	gap: 25px;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.events-list:hover {
+	background-color: var(--boxShadow);
+}
+
+/* ============================================ MOBILE ================================== */
+
+@media only screen and (max-width: 760px) {
+	.homeSection,
+	.artists,
+	.john-art,
+	.events,
+	.closest-event {
+		flex-direction: column;
+	}
+
+	.closest-event {
+		width: 100%;
+		padding: 10px;
+		margin: 40px;
+	}
+
+	.events-rigth,
+	.event-scroll {
+		margin-top: 70px;
+	}
+
+	.john-doe-label .john-doe-description {
+		width: 100%;
+	}
+
+	.homeSection .homeDescription {
+		max-width: 450px;
+	}
+}
