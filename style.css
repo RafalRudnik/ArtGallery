@@ -240,6 +240,7 @@ a {
 
 .homeSection {
 	margin-top: 140px;
+	margin-bottom: 140px;
 	justify-content: space-between;
 	gap: 50px;
 }
@@ -285,7 +286,8 @@ a {
 /* ============================================ ARTISTS ================================== */
 
 .artists {
-	margin-top: 80px;
+	margin-top: 140px;
+	margin-bottom: 140px;
 	gap: 45px;
 }
 
@@ -435,6 +437,7 @@ a {
 .events {
 	justify-content: space-between;
 	margin-top: 140px;
+	margin-bottom: 140px;
 }
 
 .events-left {
@@ -525,6 +528,7 @@ a {
 .contact {
 	justify-content: space-around;
 	margin-top: 140px;
+	margin-bottom: 140px;
 	align-items: center;
 }
 
@@ -548,8 +552,8 @@ a {
 }
 
 .contact-description {
-	min-width: 245px;
-	min-height: 545px;
+	width: 245px;
+	height: 545px;
 	border-radius: 15px;
 	background-color: var(--background);
 	display: flex;
