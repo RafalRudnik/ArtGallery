@@ -6,6 +6,8 @@ const homeSection = document.querySelector('.homeSection');
 const artSection = document.querySelector('.artists');
 const eventsBtn = document.querySelector('.eventsLink');
 const eventsSection = document.querySelector('.events');
+const contactBtn = document.querySelector('.contactLink');
+const contactSection = document.querySelector('.contact');
 const sections = document.querySelectorAll('.section');
 const allArtists = document.querySelectorAll('.all-artists');
 const john = document.querySelector('.john');
@@ -31,6 +33,17 @@ const descOne = document.querySelectorAll('.desc-one');
 const descTwo = document.querySelectorAll('.desc-two');
 const descThree = document.querySelectorAll('.desc-three');
 const descFour = document.querySelectorAll('.desc-four');
+
+// ---------------------------- Contact ------------------------
+
+const arrowOneBtn = document.querySelector('.arrow-one-btn');
+const arrowTwoBtn = document.querySelector('.arrow-two-btn');
+
+const arrowOneIcon = document.querySelector('.arrow-one');
+const arrowTwoIcon = document.querySelector('.arrow-two');
+
+const contactDescOne = document.querySelector('.contact-one');
+const contactDescTwo = document.querySelector('.contact-two');
 
 // ---------------------------- END artists desc ------------------------
 
@@ -61,6 +74,15 @@ const events = () => {
 	);
 	eventsSection.classList.add('main-active');
 	navThird.classList.add('navLink-span-on');
+};
+
+const contact = () => {
+	sections.forEach((section) => section.classList.remove('main-active'));
+	navFirstLetter.forEach((letter) =>
+		letter.classList.remove('navLink-span-on')
+	);
+	contactSection.classList.add('main-active');
+	navFourth.classList.add('navLink-span-on');
 };
 
 const johnArt = () => {
@@ -103,6 +125,25 @@ const switchFour = () => {
 
 // ---------------------------- END John Doe paint info ------------------------
 
+// ---------------------------- contact section ------------------------
+
+const contactOne = () => {
+	contactDescOne.classList.toggle('contact-desc-one');
+	arrowOneIcon.classList.toggle('arrow-rotate');
+};
+
+const contactTwo = () => {
+	contactDescTwo.classList.toggle('contact-desc-two');
+	// arrowTwoIcon.classList.toggle('arrow-rotate');
+	if (contactDescTwo.classList.contains('contact-desc-two')) {
+		arrowTwoIcon.style.transform = 'rotate(0deg)';
+	} else {
+		arrowTwoIcon.style.transform = 'rotate(180deg)';
+	}
+};
+
+// ---------------------------- END section ------------------------
+
 homeSection.classList.toggle('main-active');
 john.classList.toggle('artists-active');
 johnDoeBtn.classList.toggle('art-back');
@@ -112,8 +153,12 @@ burgerIcon.addEventListener('click', burgerSwitch);
 homeBtn.addEventListener('click', home);
 artBtn.addEventListener('click', art);
 eventsBtn.addEventListener('click', events);
+contactBtn.addEventListener('click', contact);
 johnDoeBtn.addEventListener('click', johnArt);
 marieBtn.addEventListener('click', marieArt);
+
+arrowOneBtn.addEventListener('click', contactOne);
+arrowTwoBtn.addEventListener('click', contactTwo);
 
 infoOne.forEach((info) => info.addEventListener('mouseenter', switchOne));
 infoOne.forEach((info) => info.addEventListener('mouseleave', switchOne));
